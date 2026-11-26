@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   TOKENS DE TEMA — GOV.CO / SECRETARÍA DE EDUCACIÓN DE POPAYÁN
+   Paleta basada en la referencia gov.co. Un único lugar para
+   cambiar los colores de toda la aplicación.
+   ========================================================= */
+
+:root {
+  --gov-blue: #3366cc;
+  --brand-blue: #2f5fd0;
+  --brand-blue-dark: #274fb3;
+
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --surface-2: #f8faff;
+  --ink: #1b2a4a;
+  --muted: #5b6b8c;
+  --line: #dfe6f2;
+
+  --active-bg: #e3ecfb;
+  --active-ink: #2f5fd0;
+
+  --danger: #c62828;
+  --danger-soft: #fdeaea;
+  --disabled: #8e96aa;
+
+  --green: #2e7d32;
+  --orange: #e07a1f;
+  --purple: #6a3fb5;
+  --teal: #0f8b8d;
+
+  --header-bg: #ffffff;
+  --sidebar-bg: #ffffff;
+  --shadow: 0 10px 30px rgba(27, 42, 74, 0.08);
+
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0b1220;
+  --surface: #111a2e;
+  --surface-2: #0e1626;
+  --ink: #e6ecf7;
+  --muted: #9aa9c4;
+  --line: #22304f;
+
+  --active-bg: #1b2a4a;
+  --active-ink: #a9c1ff;
+
+  --danger: #ff6b6b;
+  --danger-soft: rgba(198, 40, 40, 0.18);
+
+  --header-bg: #0e1626;
+  --sidebar-bg: #0e1626;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+input,
+select,
+textarea {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(47, 95, 208, 0.18);
+}
+
+button {
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* ------------------ Botones ------------------ */
+
+.btn {
+  background: var(--brand-blue);
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1.1;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--brand-blue-dark);
+}
+
+.btn:disabled {
+  background: var(--disabled);
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.btn-danger:hover:not(:disabled) {
+  filter: brightness(0.92);
+}
+
+/* ------------------ Superficies ------------------ */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+/* Compatibilidad con estilos existentes */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+/* ------------------ Barra GOV.CO / header ------------------ */
+
+.gov-topbar {
+  background: var(--gov-blue);
+  color: #fff;
+}
+
+.app-header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.sidebar {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--line);
+}
+
+/* ------------------ Menú lateral ------------------ */
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  color: var(--ink);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  background: var(--surface-2);
+}
+
+.nav-item.active {
+  background: var(--active-bg);
+  color: var(--active-ink);
+  font-weight: 700;
+}
+
+/* ------------------ Zona de carga ------------------ */
+
+.upload-zone {
+  border: 2px dashed #a9beea;
+  background: var(--surface-2);
+  border-radius: 14px;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.dark .upload-zone {
+  border-color: #35507f;
+}
+
+/* ------------------ Tablas ------------------ */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.data-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.data-table td {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.data-table tbody tr:hover {
+  background: var(--surface-2);
+}
